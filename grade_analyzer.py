@@ -33,9 +33,9 @@ def generate_report(classified, passing_avg=70):
     total = len(classified)
     for k, v in classified.items():
         status = v[1]
-        if status != 'F':
+        if v[0] >=70:
             passed +=1 
-        print (f"{k:<10}| Avg: {v[0]:<6}| Grade: {status:<3}| Status: {'PASS' if status != 'F' else 'FAIL'}")
+        print (f"{k:<10}| Avg: {v[0]:<6}| Grade: {status:<3}| Status: {'PASS' if v[0] >=70 else 'FAIL'}")
 
     print("=================================")
 
@@ -48,7 +48,7 @@ def generate_report(classified, passing_avg=70):
 students = {
     "Indhu": [80,89,95],
     "Sharmi" :[60,85,97,66],
-    "John": [90,94,67],
+    "John": [90,94,7],
     "Max": [40, 22,10]
 }
 
